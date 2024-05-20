@@ -1,4 +1,3 @@
-const REACT_APP_PYTHON_SCRIPT_RUNNER_BE_URL = 'https://yzyuuma.srv.hanuman.build';
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -10,7 +9,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${REACT_APP_PYTHON_SCRIPT_RUNNER_BE_URL}/run-script`, { script });
+      const response = await axios.post(`${process.env.REACT_APP_PYTHON_SCRIPT_RUNNER_BE_URL}/run-script`, { script });
       setOutput(response.data.output);
     } catch (error) {
       console.error('Error running script:', error);
